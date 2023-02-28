@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "692441333397",
+    "project_id": "mini-chat-bs",
+    "storage_bucket": "mini-chat-bs.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:692441333397:android:1c41811c74a0bd44f1259c",
+        "android_client_info": {
+          "package_name": "com.bs.mini_chat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "692441333397-kl0jg27quap4npot6jmkk7rcp73rnbid.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAX9YFM5inlgDCTG-pon7RLJlTGdiMsTUc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "692441333397-kl0jg27quap4npot6jmkk7rcp73rnbid.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "692441333397-ovgqprpmk6b1upkr6ho1nshk6t51gj83.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.miniChat"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
