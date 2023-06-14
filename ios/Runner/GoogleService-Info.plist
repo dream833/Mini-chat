@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>692441333397-ovgqprpmk6b1upkr6ho1nshk6t51gj83.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.692441333397-ovgqprpmk6b1upkr6ho1nshk6t51gj83</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDRcOK88AprOi2LJDt3mIug3WLv8g1LEyc</string>
+	<key>GCM_SENDER_ID</key>
+	<string>692441333397</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.bs.miniChat</string>
+	<key>PROJECT_ID</key>
+	<string>mini-chat-bs</string>
+	<key>STORAGE_BUCKET</key>
+	<string>mini-chat-bs.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:692441333397:ios:b78bc493d81697c6f1259c</string>
+</dict>
+</plist>
