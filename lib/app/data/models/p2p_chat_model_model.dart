@@ -1,94 +1,97 @@
+// To parse this JSON data, do
+//
+//     final p2PChatModel = p2PChatModelFromJson(jsonString);
+
 import 'dart:convert';
 
-import 'conversation_list_model_model.dart';
+P2pChatModel p2PChatModelFromJson(String str) => P2pChatModel.fromJson(json.decode(str));
+
+String p2PChatModelToJson(P2pChatModel data) => json.encode(data.toJson());
 
 class P2pChatModel {
-  bool? success;
-  List<P2PMessageModel>? messages;
+    bool? success;
+    List<P2PMessageModel>? messages;
 
-  P2pChatModel({this.success, this.messages});
+    P2pChatModel({
+        this.success,
+        this.messages,
+    });
 
-  P2pChatModel.fromJson(Map<String, dynamic> json) {
-    success = json['success'];
-    if (json['messages'] != null) {
-      messages = <P2PMessageModel>[];
-      json['messages'].forEach((v) {
-        messages?.add(P2PMessageModel.fromJson(v));
-      });
-    }
-  }
+    factory P2pChatModel.fromJson(Map<String, dynamic> json) => P2pChatModel(
+        success: json["success"],
+        messages: json["messages"] == null ? [] : List<P2PMessageModel>.from(json["messages"]!.map((x) => P2PMessageModel.fromJson(x))),
+    );
 
-  Map<String, dynamic> toJson() {
-    final data = <String, dynamic>{};
-    data['success'] = success;
-    if (messages != null) {
-      data['messages'] = messages?.map((v) => v.toJson()).toList();
-    }
-    return data;
-  }
+    Map<String, dynamic> toJson() => {
+        "success": success,
+        "messages": messages == null ? [] : List<dynamic>.from(messages!.map((x) => x.toJson())),
+    };
 }
 
 class P2PMessageModel {
-  String? senderNumber;
-  String? receiverNumber;
-  String? sId;
-  MessageModel? text;
-  String? sender;
-  String? senderName;
-  String? senderImage;
-  String? receiver;
-  String? receiverName;
-  String? receiverImage;
-  int? date;
-  bool? isLastChat;
-  int? iV;
+    String? id;
+    String? text;
+    String? image;
+    String? sender;
+    String? senderNumber;
+    String? senderName;
+    String? senderImage;
+    String? receiver;
+    String? receiverNumber;
+    String? receiverName;
+    String? receiverImage;
+    int? date;
+    bool? isLastChat;
+    int? v;
 
-  P2PMessageModel(
-      {this.senderNumber,
-      this.receiverNumber,
-      this.sId,
-      this.text,
-      this.sender,
-      this.senderName,
-      this.senderImage,
-      this.receiver,
-      this.receiverName,
-      this.receiverImage,
-      this.date,
-      this.isLastChat,
-      this.iV});
+    P2PMessageModel({
+        this.id,
+        this.text,
+        this.image,
+        this.sender,
+        this.senderNumber,
+        this.senderName,
+        this.senderImage,
+        this.receiver,
+        this.receiverNumber,
+        this.receiverName,
+        this.receiverImage,
+        this.date,
+        this.isLastChat,
+        this.v,
+    });
 
-  P2PMessageModel.fromJson(Map<String, dynamic> json) {
-    senderNumber = json['senderNumber'];
-    receiverNumber = json['receiverNumber'];
-    sId = json['_id'];
-    text = MessageModel.fromJson(jsonDecode(json['text']));
-    sender = json['sender'];
-    senderName = json['senderName'];
-    senderImage = json['senderImage'];
-    receiver = json['receiver'];
-    receiverName = json['receiverName'];
-    receiverImage = json['receiverImage'];
-    date = json['date'];
-    isLastChat = json['isLastChat'];
-    iV = json['__v'];
-  }
+    factory P2PMessageModel.fromJson(Map<String, dynamic> json) => P2PMessageModel(
+        id: json["_id"],
+        text: json["text"],
+        image:json["image"],
+        sender: json["sender"],
+        senderNumber: json["senderNumber"],
+        senderName: json["senderName"],
+        senderImage: json["senderImage"],
+        receiver: json["receiver"],
+        receiverNumber: json["receiverNumber"],
+        receiverName: json["receiverName"],
+        receiverImage: json["receiverImage"],
+        date: json["date"],
+        isLastChat: json["isLastChat"],
+        v: json["__v"],
+    );
 
-  Map<String, dynamic> toJson() {
-    final data = <String, dynamic>{};
-    data['senderNumber'] = senderNumber;
-    data['receiverNumber'] = receiverNumber;
-    data['_id'] = sId;
-    data['text'] = text;
-    data['sender'] = sender;
-    data['senderName'] = senderName;
-    data['senderImage'] = senderImage;
-    data['receiver'] = receiver;
-    data['receiverName'] = receiverName;
-    data['receiverImage'] = receiverImage;
-    data['date'] = date;
-    data['isLastChat'] = isLastChat;
-    data['__v'] = iV;
-    return data;
-  }
+    Map<String, dynamic> toJson() => {
+        "_id": id,
+        "text": text,
+        "image":image,
+        "sender": sender,
+        "senderNumber": senderNumber,
+        "senderName": senderName,
+        "senderImage": senderImage,
+        "receiver": receiver,
+        "receiverNumber": receiverNumber,
+        "receiverName": receiverName,
+        "receiverImage": receiverImage,
+        "date": date,
+        "isLastChat": isLastChat,
+        "__v": v,
+    };
 }

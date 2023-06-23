@@ -16,7 +16,7 @@ dependencies:
   get_storage: ^2.0.3
   firebase_auth: ^4.2.4
   firebase_core: ^2.4.1
-  dio: ^4.0.6
+  dio: ^5.2.1
   permission_handler: ^10.2.0
   contacts_service: ^0.6.3
   google_fonts: ^3.0.1
@@ -24,7 +24,7 @@ dependencies:
   intl: ^0.17.0
   pull_to_refresh: ^2.0.0
   socket_io_client: ^2.0.1
-  image_picker: ^0.8.6
+  image_picker: ^0.8.7+3
   cached_network_image: ^3.2.3
   agora_rtc_engine: ^6.1.1+1
   agora_uikit: ^1.1.0

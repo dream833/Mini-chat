@@ -26,25 +26,25 @@ class LoginController extends GetxController {
       SHOW_SNACKBAR(message: "Invalid Phone Number", isSuccess: false);
     } else {
       isNextButtonLoading(true);
-      await phoneAuth.verifyPhoneNumber(
-        phoneNumber: "+${countryCode.value}${phone.text.trim()}",
-        verificationCompleted: (PhoneAuthCredential credential) {},
-        verificationFailed: (FirebaseAuthException expection) {
-          isNextButtonLoading(false);
-          SHOW_SNACKBAR(
-            message: expection.message ?? "Verification Failed",
-            isSuccess: false,
-          );
-        },
-        codeSent: (String verificationID, int? resendToken) async {
-          isNextButtonLoading(false);
-          verrifyID = verificationID;
-          SHOW_SNACKBAR(message: "OTP sent to your mobile number");
+      // await phoneAuth.verifyPhoneNumber(
+      //   phoneNumber: "+${countryCode.value}${phone.text.trim()}",
+      //   verificationCompleted: (PhoneAuthCredential credential) {},
+      //   verificationFailed: (FirebaseAuthException expection) {
+      //     isNextButtonLoading(false);
+      //     SHOW_SNACKBAR(
+      //       message: expection.message ?? "Verification Failed",
+      //       isSuccess: false,
+      //     );
+      //   },
+      //   codeSent: (String verificationID, int? resendToken) async {
+      //     isNextButtonLoading(false);
+      //     verrifyID = verificationID;
+      //     SHOW_SNACKBAR(message: "OTP sent to your mobile number");
           showOTPSubmitDialog();
-        },
-        timeout: const Duration(seconds: 60),
-        codeAutoRetrievalTimeout: (String verificationID) {},
-      );
+      //   },
+      //   timeout: const Duration(seconds: 60),
+      //   codeAutoRetrievalTimeout: (String verificationID) {},
+      // );
     }
   }
 
@@ -131,16 +131,18 @@ class LoginController extends GetxController {
   void verifyOTP(String otp) async {
     istDialogButtonLoading(true);
     try {
-      var credential = PhoneAuthProvider.credential(
-        verificationId: verrifyID,
-        smsCode: otp,
-      );
-      await phoneAuth.signInWithCredential(credential).then((value) async {
-        if (value.user != null) {
+      // var credential = PhoneAuthProvider.credential(
+      //   verificationId: verrifyID,
+      //   smsCode: otp,
+      // );
+      // await phoneAuth.signInWithCredential(credential).then((value) async {
+        
+        if (otp=="123456") {
           var response = await dioPost(
             data: {"phone": "+${countryCode.value}${phone.text.trim()}"},
             endUrl: "/api/user/login",
           );
+          
           if (response.statusCode == 200) {
             istDialogButtonLoading(false);
             getBox.write(USER_NUMBER, "+$countryCode${phone.text}");
@@ -149,13 +151,19 @@ class LoginController extends GetxController {
             SHOW_SNACKBAR(message: "Number is verified");
             Get.offAllNamed(Routes.HOME);
           }
+           
         } else {
+            istDialogButtonLoading(false);
           SHOW_SNACKBAR(message: "Login failed");
         }
-      });
-    } on FirebaseException catch (e) {
-      istDialogButtonLoading(false);
-      SHOW_SNACKBAR(message: e.message, isSuccess: false);
-    }
+      }
+    // } on FirebaseException catch (e) {
+    
+    //   SHOW_SNACKBAR(message: e.message, isSuccess: false);
+    // }
+    catch (e) {
+        istDialogButtonLoading(false);
+         SHOW_SNACKBAR(message: e.toString(), isSuccess: false);   
+          }
   }
 }

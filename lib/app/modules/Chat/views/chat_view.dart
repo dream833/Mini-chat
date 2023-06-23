@@ -49,9 +49,7 @@ class ChatView extends GetView<ChatController> {
                         var data = controller
                             .conversationListModel.value.messages![index];
                         return ChatUserListWidget(
-                          lastMsg: data.text!.type == "text"
-                              ? data.text!.value ?? ""
-                              : "File",
+                          lastMsg: data.text.toString(),
                           msgTime: (data.date ?? 0).toString(),
                           name: data.senderNumber == getBox.read(USER_NUMBER)
                               ? data.receiverName ?? ""

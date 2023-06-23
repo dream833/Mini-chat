@@ -41,6 +41,7 @@ class ChatBubble extends StatelessWidget {
         key: key,
         builder: (context) {
           if (p2pMessageModel.senderNumber == getBox.read(USER_NUMBER)) {
+            
             return Container(
               width: Get.width / 3,
               margin: EdgeInsets.only(
@@ -52,10 +53,12 @@ class ChatBubble extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        p2pMessageModel.text!.type == "text"
-                            ? p2pMessageModel.text!.value ?? ""
-                            : "File",
+                      
+                      ((p2pMessageModel.text.toString() != "")?Text(p2pMessageModel.text.toString())
+                      :Image.network(
+                          p2pMessageModel.image.toString())),
+                      SizedBox(
+                        height: 10.h,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
@@ -98,11 +101,18 @@ class ChatBubble extends StatelessWidget {
                 subtitle: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      p2pMessageModel.text!.type == "text"
-                          ? p2pMessageModel.text!.value ?? ""
-                          : "File",
-                      style: TextStyle(color: Colors.black, fontSize: 14.sp),
+                    
+                    
+                    ((p2pMessageModel.text.toString() != "")
+                        ? 
+                        Text(
+                            p2pMessageModel.text.toString(),
+                            style:
+                                TextStyle(color: Colors.black, fontSize: 14.sp),
+                          )
+                        :Image.network(p2pMessageModel.image.toString()) ),
+                    SizedBox(
+                      height: 10.h,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,

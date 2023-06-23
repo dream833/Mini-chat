@@ -20,8 +20,8 @@ Future<DIO.Response<dynamic>> dioGet(String endUrl) async {
     "$BASE_URL$endUrl",
     options: DIO.Options(
       validateStatus: (status) => true,
-      sendTimeout: 100000,
-      receiveTimeout: 15000,
+      sendTimeout: const Duration(milliseconds: 100000),
+      receiveTimeout: const Duration(milliseconds: 15000),
     ),
   );
   isDebugMode.value
@@ -44,8 +44,8 @@ Future<DIO.Response<dynamic>> dioUGet(String endUrl) async {
     endUrl,
     options: DIO.Options(
       validateStatus: (status) => true,
-      sendTimeout: 100000,
-      receiveTimeout: 15000,
+      sendTimeout: const Duration(milliseconds: 100000),
+      receiveTimeout: const Duration(milliseconds: 15000),
     ),
   );
   isDebugMode.value

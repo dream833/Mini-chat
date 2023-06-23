@@ -39,6 +39,8 @@ class ChatDetailsView extends GetView<ChatDetailsController> {
           actions: [
             InkWell(
               onTap: () {
+                // print(controller.channelId.value.toString());
+                // print(controller.token.value.toString());
                 Get.to(const CallView(), arguments: [
                   {
                     "token": controller.token.value.toString(),
@@ -125,23 +127,36 @@ class ChatDetailsView extends GetView<ChatDetailsController> {
                   child: Row(
                     children: [
                       Expanded(
-                        child: TextFormField(
-                          keyboardType: TextInputType.text,
-                          textInputAction: TextInputAction.send,
-                          controller: controller.chatController,
-                          decoration: InputDecoration(
-                              contentPadding:
-                                  EdgeInsets.symmetric(horizontal: 25.r),
-                              hintText: "Type here...",
-                              hintStyle: TextStyle(
-                                  color: AppColor.grey), //Color(0xFF00BFA5)
-                              border: InputBorder.none),
+                        child: Stack(
+                          children: [
+                            TextFormField(
+                              keyboardType: TextInputType.text,
+                              textInputAction: TextInputAction.send,
+                              controller: controller.chatController,
+                              decoration: InputDecoration(
+                                  contentPadding:
+                                      EdgeInsets.symmetric(horizontal: 25.r),
+                                  hintText: "Type here...",
+                                  hintStyle: TextStyle(
+                                      color: AppColor.grey), //Color(0xFF00BFA5)
+                                  border: InputBorder.none),
+                            ),
+                            Positioned(
+                                right: 5.w,
+                                top: 10.h,
+                                child: GestureDetector(
+                                  onTap:(){
+                                    controller.getImage();
+                                  },
+                                  child: const Icon(Icons.attach_file)))
+                          ],
                         ),
                       ),
                     ],
                   ),
                 ),
               ),
+              
               const SizedBox(width: 12),
               Container(
                 padding: const EdgeInsets.all(10.0),

@@ -11,7 +11,7 @@ class ChatController extends GetxController {
   void onInit() {
     super.onInit();
     getConversations();
-    getConversationListEvery5Sec();
+    // getConversationListEvery5Sec();
   }
 
   var conversationListModel = ConversationListModel().obs;

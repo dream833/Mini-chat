@@ -27,8 +27,8 @@ Future<DIO.Response<dynamic>> dioPost(
       data: data,
       options: DIO.Options(
         validateStatus: (status) => true,
-        sendTimeout: 100000,
-        receiveTimeout: 100000,
+        sendTimeout: const Duration(milliseconds: 100000),
+        receiveTimeout: const Duration(milliseconds: 100000),
       ),
     );
     isDebugMode.value
@@ -43,8 +43,8 @@ Future<DIO.Response<dynamic>> dioPost(
       data: data,
       options: DIO.Options(
         validateStatus: (status) => true,
-        sendTimeout: 100000,
-        receiveTimeout: 100000,
+        sendTimeout: const Duration(milliseconds: 100000),
+        receiveTimeout: const Duration(milliseconds: 100000),
       ),
     );
     isDebugMode.value
